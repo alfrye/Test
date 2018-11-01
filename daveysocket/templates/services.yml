@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: daveysocket
+spec:
+  selector:
+    app: daveysocket
+  ports:
+  - port: 8080
+    targetPort: 30000

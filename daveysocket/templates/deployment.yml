@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daveysocket
+spec:
+  selector:
+    matchLabels:
+      app: daveysocket
+  template:
+    metadata:
+      labels:
+        app: daveysocket
+    spec:
+      containers:
+      - name: daveysocket
+        image: celestialc.ad.selinc.com:5000/daveysocket:0.1
+        ports:
+        - containerPort: 8080
+        
