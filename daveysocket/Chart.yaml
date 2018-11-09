@@ -3,3 +3,12 @@ appVersion: "1.0"
 description: DaveSocket web server 
 name: daveysocket
 version: 0.1.0
+keywords:
+- daveysocket
+- logic
+maintainers:
+- name: Paton Williams
+  email:"aa@sa.com"
+- name: Dusty Fandago
+  email: "dusty@fandago.com"
+icon: 

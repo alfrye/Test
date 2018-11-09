@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logicexecutor
+spec:
+  selector:
+    matchLabels:
+      app: logicexecutor
+  template:
+    metadata:
+      labels:
+        app: logicexecutor
+    spec:
+      containers:
+      - name: logicexecutor
+        image: celestialc.ad.selinc.com:5000/logicexecutor:0.1
+        env:
+          - name: MessageBusAddress
+            value: messagebus-nodeport-ip
+          - name: MessageBusPort
+            value: "4222"
+          

@@ -16,4 +16,7 @@ spec:
         image: celestialc.ad.selinc.com:5000/daveysocket:0.1
         ports:
         - containerPort: 8080
-        
+        env:
+          - name: MessageBusAddress
+            value: messagebus-nodeport-ip
+          
