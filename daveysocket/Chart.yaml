@@ -2,7 +2,7 @@ apiVersion: v1
 appVersion: "1.0"
 description: DaveSocket web server 
 name: daveysocket
-version: 0.1.0
+version: 0.2.0
 keywords:
 - daveysocket
 - logic
