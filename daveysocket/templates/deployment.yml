@@ -18,5 +18,5 @@ spec:
         - containerPort: 8080
         env:
           - name: MessageBusAddress
-            value: messagebus-nodeport-ip
+            value: messagebus-cluster-ip
           
