@@ -9,7 +9,7 @@ spec:
   rules:
    - http: 
       paths: 
-        - path: /logic
+        - path: /
           backend:
             serviceName: daveysocket-cluster-ip #this will need to be changed to my actual service name 
             servicePort: 8080
