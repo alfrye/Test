@@ -9,9 +9,9 @@ spec:
   rules:
    - http: 
       paths: 
-        - path: /
+        - path: /logic
           backend:
-            serviceName: daveysocket-nodeport-ip #this will need to be changed to my actual service name 
+            serviceName: daveysocket-cluster-ip #this will need to be changed to my actual service name 
             servicePort: 8080
         # - path: /api/
         #   backend:
