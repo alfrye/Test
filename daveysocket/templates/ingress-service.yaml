@@ -9,7 +9,7 @@ metadata:
 spec:
   rules:
   - host: ingress-service.10.39.84.67.xip.io
-   - http: 
+    http: 
       paths: 
         - path: /
           backend:
