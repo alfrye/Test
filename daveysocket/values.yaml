@@ -23,7 +23,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-   
+    - chart-example.local
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -46,6 +46,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-Release:
-  Name: "DaveySocket"
