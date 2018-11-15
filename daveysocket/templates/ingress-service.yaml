@@ -2,12 +2,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata: 
   name: ingress-service
-  annotations:
+   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: ingress-service.10.39.84.67.xip.io
+  - host: "ingress-service.10.39.84.67.xip.io"
     http: 
       paths: 
         - path: /
