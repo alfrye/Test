@@ -7,8 +7,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  -  http: 
-      paths: 
+  - http: 
+     paths: 
         - path: /
           backend:
             serviceName: daveysocket-cluster-ip #this will need to be changed to my actual service name 
