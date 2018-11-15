@@ -8,8 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: DaveySocket-ingress.10.39.84.67.xip.io
-    http: 
+    - http: 
       paths: 
         - path: /
           backend:
