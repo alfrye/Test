@@ -1,13 +1,19 @@
+{{- if .Values.server.ingress.enabled -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata: 
   name: ingress-service
+  {{- if .Values.server.ingress.annotations }}
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  {{ toYaml .Values.server.ingress.annotations | indent 4 }}
+  {{- end }}
+
+    
 spec:
   rules:
-  - host: alan.10.39.84.67.xip.io
+  {{- range .Values.server.ingress.hosts}}
+     {{- $url := splitList "/" . }}
+  - host: {{ first $url }}
     http: 
       paths: 
         - path: /
