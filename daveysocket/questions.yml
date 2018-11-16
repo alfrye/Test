@@ -1,0 +1,20 @@
+categories:
+- Logic
+questions:
+- variable: server.ingress.enabled
+  default: true
+  description: "Expose DaveySocket using Load Balancer - ingress"
+  type: boolean
+  group: "DaveySocket Web Server"
+  label: Expose DaveySocket to load balancer
+  show_subquestion_if: true
+  required: true
+  subquestions:
+  - variable: server.ingress.hosts[0]
+    default: "xip.io"
+    description: "DaveySocket server ingress name"
+    type: hostname
+    required: true
+    label: Hostname
+    
+
