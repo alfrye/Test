@@ -6,7 +6,7 @@ metadata:
   {{- if .Values.server.ingress.annotations }}
   annotations:
   {{ toYaml .Values.server.ingress.annotations | indent 4 }}
-  {{- end }}
+  {{- end  }}
 
     
 spec:
@@ -21,11 +21,7 @@ spec:
             serviceName: daveysocket-cluster-ip #this will need to be changed to my actual service name 
             servicePort: 8080
   {{- end -}}
-{{- end -}}
-        # - path: /api/
-        #   backend:
-        #     serviceName: service-cluster-ip-service
-        #     servicePort: 5000
 
-    
+       
+{{- end -}}
   
