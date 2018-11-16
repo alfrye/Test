@@ -20,6 +20,8 @@ spec:
           backend:
             serviceName: daveysocket-cluster-ip #this will need to be changed to my actual service name 
             servicePort: 8080
+  {{- end -}}
+{{- end -}}
         # - path: /api/
         #   backend:
         #     serviceName: service-cluster-ip-service
