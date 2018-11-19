@@ -1,6 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: messagebus
+spec:
+  selector:
+    matchLabels:
+      app: messagebus
+  template:
+    metadata:
+      labels:
+        app: messagebus
+    spec:
+      containers:
+      - name: messagebus
+        image: sel-docker.artifactory.metro.ad.selinc.com/nats
+        ports:
+        - containerPort: 4222
+        
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: daveysocket
 spec:
   selector:
