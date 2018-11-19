@@ -3,10 +3,10 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata: 
   name: ingress-service
-  {{- if .Values.server.ingress.annotations }}
+{{- if .Values.server.ingress.annotations }}
   annotations:
-  {{ toYaml .Values.server.ingress.annotations | indent 4 }}
-  {{- end  }}
+{{ toYaml .Values.server.ingress.annotations | indent 4 }}
+{{- end  }}
 
     
 spec:
