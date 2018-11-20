@@ -10,7 +10,7 @@ questions:
   show_subquestion_if: true
   required: true
   subquestions:
-  - variable: server.ingress.hosts[0]
+  - variable: ingress.hosts[0]
     default: "xip.io"
     description: "Fiddlepad server ingress name"
     type: hostname
