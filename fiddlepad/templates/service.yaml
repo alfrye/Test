@@ -1,19 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "fiddlepad.fullname" . }}
-  labels:
-    app.kubernetes.io/name: {{ include "fiddlepad.name" . }}
-    helm.sh/chart: {{ include "fiddlepad.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: {{ include "fiddlepad.fullname" . }}-cluster-ip
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  type: ClusterIP
   selector:
-    app.kubernetes.io/name: {{ include "fiddlepad.name" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
+    app: {{ include "fiddlepad.fullname" . }}-cluster-ip
+  ports:
+  - port: 8080
+    targetPort: 8080
+    

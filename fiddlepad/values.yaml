@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: celestialc.ad.selinc.com:5000
-  tag: selang_fiddle:latest
+  tag: selangfiddle:0.1
   pullPolicy: IfNotPresent
 
 nameOverride: ""
