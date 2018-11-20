@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: celestialc.ad.selinc.com:5000/selangfiddle:0.1
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http

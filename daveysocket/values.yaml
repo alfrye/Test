@@ -49,7 +49,7 @@ affinity: {}
 server:
   name: server
   image:
-    repository: celestiala.ad.selinc.com:5000
+    repository: celestialc.ad.selinc.com:5000
     tag: daveysocket:0.1
     pullPolicy: IfNotPresent
   prefixURL: ""
