@@ -19,8 +19,8 @@ spec:
       paths: 
         - path: /
           backend:
-            serviceName: {{ include "fiddlepad.fullname" . }}-cluster-ip #this will need to be changed to my actual service name 
-            servicePort: 8081
+            serviceName: fiddlepad-cluster-ip #this will need to be changed to my actual service name 
+            servicePort: 8080
   {{- end -}}
 
        

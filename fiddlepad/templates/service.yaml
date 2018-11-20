@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "fiddlepad.fullname" . }}-cluster-ip
+  name: fiddlepad-cluster-ip
 spec:
   type: ClusterIP
   selector:
-    app: {{ include "fiddlepad.fullname" . }}-cluster-ip
+    app: fiddlepad-cluster-ip
   ports:
   - port: 8080
     targetPort: 8080
