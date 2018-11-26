@@ -19,9 +19,9 @@ spec:
         env:
           - name: MessageBusAddress
             value: messagebus-cluster-ip
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 8080
-          initialDelaySeconds: 10
-          periodSeconds: 3  
+        # livenessProbe:
+        #   httpGet:
+        #     path: /
+        #     port: 8080
+        #   initialDelaySeconds: 10
+        #   periodSeconds: 3  
