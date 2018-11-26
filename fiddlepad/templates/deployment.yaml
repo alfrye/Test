@@ -35,6 +35,18 @@ spec:
             httpGet:
               path: /
               port: http
+          volumeMounts:
+            - name: fiddle-storage-standardlib
+              mountPath: /var/libs/jetty/webapps/lib/standardlib
+            - name: fiddle-storage-userlib
+              mountPath:  /var/libs/jetty/webapps/lib/userlib
+      volumes:
+        - name: fiddle-storage-standardlib
+          persistentVolumeClaim:
+            claimName: fiddlepad-pv-claim
+        - name: fiddle-storage-userlib
+          persistentVolumeClaim:
+            claimName: fiddlepad-pv-claim
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}
@@ -49,18 +61,7 @@ spec:
       tolerations:
 {{ toYaml . | indent 8 }}
     {{- end }}
-          volumeMounts:
-            - name: fiddle-storage-standardlib
-              mountPath: /var/libs/jetty/webapps/lib/standardlib
-            - name: fiddle-storage-userlib
-              mountPath:  /var/libs/jetty/webapps/lib/userlib
-        volumes:
-          - name: fiddle-storage-standardlib
-            persistentVolumeClaim:
-              claimName: fiddlepad-pv-claim
-           - name: fiddle-storage-userlib
-            persistentVolumeClaim:
-              claimName: fiddlepad-pv-claim
+          
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -71,4 +72,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 200MB
+      storage: 200Mi
