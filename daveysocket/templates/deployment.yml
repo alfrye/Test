@@ -13,12 +13,14 @@ spec:
     spec:
       containers:
       - name: daveysocket
-        image: celestialc.ad.selinc.com:5000/daveysocket:0.1
+        image: celestialc.ad.selinc.com:5000/daveysocket:0.2
         ports:
         - containerPort: 8080
         env:
           - name: MessageBusAddress
             value: messagebus-cluster-ip
+          - name: MessageBusPort
+            value: "4222"
         # livenessProbe:
         #   httpGet:
         #     path: /
