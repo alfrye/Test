@@ -14,8 +14,8 @@ spec:
       containers:
       - name: daveysocket
         image: council-docker-dev.artifactory.metro.ad.selinc.com/daveysocket:0.3
-        imagePullSecrets:
-        - name: council
+      imagePullSecrets:
+      - name: council
         ports:
         - containerPort: 8080
         env:
