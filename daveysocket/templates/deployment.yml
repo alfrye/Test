@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: daveysocket
-        image: celestialc.ad.selinc.com:5000/daveysocket:0.3
+        image: council-docker-dev.artifactory.metro.ad.selinc.com/daveysocket:0.3
         ports:
         - containerPort: 8080
         env:
