@@ -18,11 +18,11 @@ spec:
       - name: council
         ports:
         - containerPort: 8080
-        env:
-          - name: MessageBusAddress
-            value: messagebus-cluster-ip
-          - name: MessageBusPort
-            value: "4222"
+      env:
+        - name: MessageBusAddress
+          value: messagebus-cluster-ip
+        - name: MessageBusPort
+          value: "4222"
         # livenessProbe:
         #   httpGet:
         #     path: /
