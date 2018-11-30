@@ -14,11 +14,11 @@ spec:
       containers:
       - name: logicexecutor
         image:  council-docker-dev.artifactory.metro.ad.selinc.com/logicexecutor:0.1
+        env:
+          - name: MessageBusAddress
+            value: messagebus-cluster-ip
+          - name: MessageBusPort
+            value: "4222"
       imagePullSecrets:
       - name: council
-      env:
-        - name: MessageBusAddress
-          value: messagebus-cluster-ip
-        - name: MessageBusPort
-          value: "4222"
           
