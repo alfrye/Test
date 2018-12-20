@@ -13,6 +13,10 @@ spec:
       labels:
         app: fiddlepad
     spec:
+      volumes:
+        - name: fiddle-storage-standardlib
+          persistentVolumeClaim:
+            claimName: fiddlepad-pv-claim
       containers:
         - name: fiddlepad
           image: council-docker-dev.artifactory.metro.ad.selinc.com/fiddlepad:0.1
@@ -31,10 +35,7 @@ spec:
           volumeMounts:
             - name: fiddle-storage-standardlib
               mountPath: /var/libs/jetty/webapps/lib/standardlib     
-      volumes:
-        - name: fiddle-storage-standardlib
-          persistentVolumeClaim:
-            claimName: fiddlepad-pv-claim
+      
       imagePullSecrets:
       - name: regcred
 
