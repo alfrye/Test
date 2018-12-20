@@ -1,7 +1,7 @@
 categories:
 - Logic
 questions:
-- variable: ingress.enabled
+- variable: server.ingress.enabled
   default: true
   description: "Expose fiddlepad using Load Balancer - ingress"
   type: boolean
@@ -10,7 +10,7 @@ questions:
   show_subquestion_if: true
   required: true
   subquestions:
-  - variable: ingress.hosts[0]
+  - variable: server.ingress.hosts[0]
     default: "xip.io"
     description: "Fiddlepad server ingress name"
     type: hostname

@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: celestialc.ad.selinc.com:5000
-  tag: selangfiddle:0.1
+  repository: council-docker-dev.artifactory.metro.ad.selinc.com/selangfiddle
+  tag: 0.1
   pullPolicy: IfNotPresent
 
 nameOverride: ""
@@ -18,9 +18,7 @@ service:
 
 ingress:
   enabled: false
-  annotations: 
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
@@ -48,3 +46,11 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+server:
+  name: server
+  ingress:
+    enabled: false
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    hosts: []

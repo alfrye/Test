@@ -1,28 +1,20 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ include "fiddlepad.fullname" . }}
-  labels:
-    app.kubernetes.io/name: {{ include "fiddlepad.name" . }}
-    helm.sh/chart: {{ include "fiddlepad.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+  name: fiddlepad
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: {{ include "fiddlepad.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
+      app: fiddlepad
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: {{ include "fiddlepad.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
+        app: fiddlepad
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: celestialc.ad.selinc.com:5000/selangfiddle:0.1
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+        - name: fiddlepad
+          image: council-docker-dev.artifactory.metro.ad.selinc.com/fiddlepad:0.1
           ports:
             - name: http
               containerPort: 8080
@@ -37,39 +29,11 @@ spec:
               port: http
           volumeMounts:
             - name: fiddle-storage-standardlib
-              mountPath: /var/libs/jetty/webapps/lib/standardlib
-            - name: fiddle-storage-userlib
-              mountPath:  /var/libs/jetty/webapps/lib/userlib
-      volumes:
-        - name: fiddle-storage-standardlib
-          persistentVolumeClaim:
-            claimName: fiddlepad-pv-claim
-        - name: fiddle-storage-userlib
-          persistentVolumeClaim:
-            claimName: fiddlepad-pv-claim
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-          
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata: 
-  name: fiddlepad-pv-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 200Mi
+              mountPath: /var/libs/jetty/webapps/lib/standardlib     
+          volumes:
+            - name: fiddle-storage-standardlib
+            persistentVolumeClaim:
+              claimName: fiddlepad-pv-claim
+
+
+
