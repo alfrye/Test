@@ -30,10 +30,10 @@ spec:
           volumeMounts:
             - name: fiddle-storage-standardlib
               mountPath: /var/libs/jetty/webapps/lib/standardlib     
-          volumes:
-            - name: fiddle-storage-standardlib
-            persistentVolumeClaim:
-              claimName: fiddlepad-pv-claim
+      volumes:
+        - name: fiddle-storage-standardlib
+          persistentVolumeClaim:
+            claimName: fiddlepad-pv-claim
 
 
 
