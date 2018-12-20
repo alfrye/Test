@@ -1,9 +1,10 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fiddlepad
+  labels:
+    app: fiddlepad
 spec:
-  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: fiddlepad
@@ -34,6 +35,8 @@ spec:
         - name: fiddle-storage-standardlib
           persistentVolumeClaim:
             claimName: fiddlepad-pv-claim
+      imagePullSecrets:
+      - name: regcred
 
 
 
