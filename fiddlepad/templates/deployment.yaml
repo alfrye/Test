@@ -14,11 +14,14 @@ spec:
     spec:
       containers:
         - name: fiddlepad
-          image: council-docker-dev.artifactory.metro.ad.selinc.com/selangfiddle:0.1
+          image: council-docker-dev.artifactory.metro.ad.selinc.com/selangfiddle:0.4
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
+          env:
+            - name: LIB_PATH
+              value: webapps/lib/
           livenessProbe:
             httpGet:
               path: /
@@ -28,12 +31,12 @@ spec:
               path: /
               port: http
           volumeMounts:
-            - name: fiddle-storage-standardlib
-              mountPath: /var/libs/jetty/webapps/lib/standardlib
+            - name: fiddle-storage-lib
+              mountPath: /var/libs/jetty/webapps/lib/
       imagePullSecrets:
       - name: council     
       volumes:
-        - name: fiddle-storage-standardlib
+        - name: fiddle-storage-lib
           persistentVolumeClaim:
             claimName: fiddlepad-pv-claim
 
