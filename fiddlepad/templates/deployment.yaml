@@ -1,10 +1,9 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: fiddlepad
-  labels:
-    app: fiddlepad
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: fiddlepad
@@ -13,10 +12,6 @@ spec:
       labels:
         app: fiddlepad
     spec:
-      volumes:
-        - name: fiddle-storage-standardlib
-          persistentVolumeClaim:
-            claimName: fiddlepad-pv-claim
       containers:
         - name: fiddlepad
           image: council-docker-dev.artifactory.metro.ad.selinc.com/selangfiddle:0.1
@@ -24,8 +19,6 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
-      imagePullSecrets:
-      - name: council
           livenessProbe:
             httpGet:
               path: /
@@ -36,9 +29,13 @@ spec:
               port: http
           volumeMounts:
             - name: fiddle-storage-standardlib
-              mountPath: /var/libs/jetty/webapps/lib/standardlib     
-      
-      
+              mountPath: /var/libs/jetty/webapps/lib/standardlib
+      imagePullSecrets:
+      - name: council     
+      volumes:
+        - name: fiddle-storage-standardlib
+          persistentVolumeClaim:
+            claimName: fiddlepad-pv-claim
 
 
 
