@@ -24,6 +24,8 @@ spec:
             - name: http
               containerPort: 8080
               protocol: TCP
+      imagePullSecrets:
+      - name: council
           livenessProbe:
             httpGet:
               path: /
