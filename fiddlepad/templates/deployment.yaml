@@ -38,8 +38,7 @@ spec:
             - name: fiddle-storage-standardlib
               mountPath: /var/libs/jetty/webapps/lib/standardlib     
       
-      imagePullSecrets:
-      - name: regcred
+      
 
 
 
