@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fiddlepad
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: fiddlepad
@@ -40,7 +40,7 @@ spec:
       imagePullSecrets:
       - name: council
       volumes:
-        - name: fiddle-storage-standardlib
+        - name: fiddle-storage-lib
           persistentVolumeClaim:
             claimName: fiddlepad-pv-claim
 
