@@ -12,24 +12,33 @@ spec:
       labels:
         app: fiddlepad
     spec:
+      securityContext:
+        runAsUser: 100
+        fsGroup: 101
       containers:
         - name: fiddlepad
-          image: council-docker-dev.artifactory.metro.ad.selinc.com/fiddlepad:0.1
+          image: council-docker-dev.artifactory.metro.ad.selinc.com/selangfiddle:0.5
           ports:
             - name: http
               containerPort: 8080
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
+          env:
+            - name: LIB_PATH
+              value: webapps/lib/
+      
+          # livenessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /
+          #     port: http
           volumeMounts:
             - name: fiddle-storage-standardlib
-              mountPath: /var/libs/jetty/webapps/lib/standardlib     
+              mountPath: /var/lib/jetty/webapps/lib    
+      imagePullSecrets:
+      - name: council
       volumes:
         - name: fiddle-storage-standardlib
           persistentVolumeClaim:
